@@ -1,0 +1,30 @@
+﻿@model List<Emp.Models.AttendanceView>
+<table class="table">
+    <thead>
+        <tr>
+            <th hidden="hidden">Id</th>
+            <th>Phone</th>
+            <th>Name</th>
+            <th>DateIn</th>
+            <th>Time In</th>
+            <th>Time Out</th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td hidden ="hidden">@employee.Id</td>
+                <th>@employee.PhoneNumber</th>
+                <td>@employee.Name</td>
+                <td>@employee.DateIn.ToShortDateString()</td>
+                <td>@employee.TimeIn</td>
+                <td>@employee.TimeOut</td>
+
+                <td hidden="hidden"><a href="Employees/view/@employee.Id">View</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,75 @@
+﻿
+@model List<Emp.Models.Domain.Employee>
+
+
+<h1>Payroll Overview Statement</h1>
+<form method="post" class="mt-6">
+    <div class="justify-content-middle mb-4">
+        <table>
+            <tr >
+                <td>From</td>
+                <td style="vertical-align: middle; text-align: left; font-size: 24px;">
+                    <input type="date" value=@ViewBag.Date1.ToString("yyyy-MM-dd") class="form-control" name="Date1">
+                </td>
+                <td>
+
+                    <select name="PhoneNumber" class="form-control">
+                        <option value="">Select a Phone Number</option>
+                        @foreach (var emp in Model)
+                        {
+                            <option value="@emp.PhoneNumber">@emp.Name</option>
+                        }
+                    </select>
+
+
+                </td>
+            </tr>
+            <tr>
+                <td >To</td>
+                <td>
+                    <input type="date" value=@ViewBag.Date2.ToString("yyyy-MM-dd") class="form-control" name="Date2" >
+                </td>
+                <td></td><td></td>
+            </tr>
+        </table>
+        
+        <button id="okButton" class="btn btn-primary" style="margin-top: 50px;" asp-controller="Reports" asp-action="AtView")">View</button>
+        <button id="okButton" class="btn btn-primary" style="margin-top: 50px;" asp-controller="Reports" asp-action="print">Print</button>
+
+    </div>
+
+</form>
+
+<div hidden="hidden">
+<h2>Attendance Summary Report:</h2>
+<h5>Overview of attendance for a specified time period.</h5>
+<h5>Total working hours, overtime, and breaks.</h5>
+
+<h1>Individual Attendance Report:</h1>
+
+<h5>Detailed attendance records for each employee.</h5>
+<h5>Number of days present, absent, late, early departure, etc.</h5>
+<h5>Historical attendance data for analysis and performance reviews.</h5>
+
+<h1>Overtime Report:</h1>
+
+<h5>Details on employees who worked beyond regular hours.</h5>
+<h5>Overtime hours and compensation.</h5>
+<h1>
+    Absenteeism Report:
+</h1>
+
+
+List of employees who were absent during a specified period.
+Analysis of reasons for absenteeism if available.
+Leave Report:
+
+<h1>Overview of approved leaves taken by employees.</h1>
+Types of leaves (vacation, sick leave, etc.).
+Holiday Attendance Report:
+
+<h1>
+    Tracking attendance on holidays.
+</h1>
+Identifying employees working on holidays.
+</div>

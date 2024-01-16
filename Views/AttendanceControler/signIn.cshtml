@@ -1,0 +1,16 @@
+﻿ @model List<Emp.Models.AttendanceView>
+
+@{
+    var todaysdat = ViewData["todaysdate"];
+}
+<h1 class="text-center">Welcome to Sign In Page</h1>
+<form method="post" class="mt-6">
+    <div class="row justify-content-center mb-4">
+        <label for="textBox" style="margin-top:20px text-align:center font-size:24px">Scan Or Enter ID:</label>
+        <input type="text" class="form-control" name="searchPhone" autofocus style="margin-top:50px">
+        <input type="text" class="form-control" name="searchDateIn" value=@ViewData["todaysdate"] readonly="readonly">
+        <button id="okButton" class="btn btn-primary" style="margin-top:50px" asp-action="Save">Save</button>
+    </div>
+    <partial name="_Attendance" model="@Model"/>
+</form>
+

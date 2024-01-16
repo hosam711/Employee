@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Emp.Models.NetComViewModel>
+<h1>Test</h1>
+<div>
+    <rsweb:ReportViewer ID="ReportViewer1" runat="server" ProcessingMode="Local">
+        <LocalReport ReportPath="~/reports/report1.rdlc">
+            <DataSources>
+                <rsweb:ReportDataSource Name="@Model"
+                                        DataSourceId="DataSet1" />
+            </DataSources>
+        </LocalReport>
+    </rsweb:ReportViewer>
+    
+    
+
+</div>

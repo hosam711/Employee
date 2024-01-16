@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Emp.Models.AttendanceView>
+<form method="post" class="mt-6" class="text-center">
+    <h1 class="text-center">Welcome to the Sign In/Sign Out Page</h1>
+    <div class="row justify-content-center mb-4">
+
+
+        <!-- Sign In Button -->
+        <button type="submit" style="width:2in ; height:2in ;font-size: 20px; margin:1in " class="btn btn-primary" asp-action="SignIn">Sign In</button>
+
+        <!-- Sign Out Button -->
+        <button type="submit" style="width:2in ; height:2in ;font-size: 20px; margin:1in  " class="btn btn-danger" asp-action="SignOut">Sign Out</button>
+
+    </div>
+    <partial name="_Attendance" model="@Model" />
+</form>

@@ -1,0 +1,73 @@
+﻿@model List<Emp.Models.NetComViewModel>
+
+<form method="post" class="mt-6">
+
+    <div class="justify-content-middle mb-4">
+        <table>
+
+            <tr>
+                <td>Name</td>
+                <td><input type="text" value=@ViewBag.Name class="form-control" readonly="readonly"/>
+                    <input type="text" value=@ViewBag.PhoneNumber class="form-control" name="PhoneNumber" readonly="readonly" hidden="hidden"/>
+                </td>
+                <td>From</td>
+                <td style="vertical-align: middle; text-align: left; font-size: 24px;">
+                    <input type="text" value=@ViewBag.Date1 class="form-control" name="Date1" readonly="readonly">
+                </td>
+
+                <td>To</td>
+                <td>
+                    <input type="text" value=@ViewBag.Date2 class="form-control" name="Date2" readonly="readonly">
+                </td>
+                
+            </tr>
+        </table>
+        
+        <button id="okButton" class="btn btn-primary" style="margin-top: 50px;" asp-controller="Reports" asp-action="Print">Print</button>
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th>Phone</th>
+                    <th>DateIn</th>
+                    <th>Time In</th>
+                    <th>Time Out</th>
+                    <th>Net Time</th>
+                    <th>Salary</th>
+                    <th>Net Compansation</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model)
+                {
+                    <tr>
+
+                        <th>@employee.PhoneNumber</th>
+                        <td>@employee.DateIn.ToShortDateString()</td>
+                        <td>@employee.TimeIn</td>
+                        <td>@employee.TimeOut</td>
+                        <td>@employee.NetTime</td>
+                        <td>@employee.Salary</td>
+                        <td>@employee.NetCompansation</td>
+                        
+
+                    </tr>
+                }
+            </tbody>
+            
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>@ViewBag.NetSum</td>
+
+            </tr>
+           </table>
+    </div>
+
+
+</form>

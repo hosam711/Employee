@@ -1,0 +1,21 @@
+﻿@model Emp.Models.UpdateEmployeeViewModel
+@{
+}
+<h1>Sign In</h1>
+<form method="post" class="mt-5">
+
+
+    <div class="mb-3">
+        <label for="" class="form-label">EmpId</label>
+        <input type="text" class="form-control" asp-for="EmpId">
+        <input type="hidden"asp-for="Id" />
+        <input type="hidden" asp-for="Salary" />
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name">
+    </div>
+    
+    <button type="submit" class="btn btn-primary asp-controller="Home" asp-action="SignIn">Sign In</button>
+
+</form>
